@@ -58,15 +58,18 @@ const Main = () => {
     if (input.trim()) {
       setIsLoading(true);
       try {
-        const res = await fetch("http://localhost:3000/completions", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            message: input,
-          }),
-        });
+        const res = await fetch(
+          "https://ai-chat-bot-bahaaghali000.onrender.com/completions",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              message: input,
+            }),
+          }
+        );
 
         const { data } = await res.json();
         setMessage(data.choices[0].message);
